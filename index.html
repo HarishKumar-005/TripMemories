@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>TripMemories AR</title>
 
-  <meta name="viewport"
-        content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" />
 
   <!-- A-Frame -->
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 
   <!-- MindAR -->
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -18,50 +18,36 @@
 
 <body>
 
-<a-scene
-  embedded
-  renderer="alpha: true; antialias: true"
-  vr-mode-ui="enabled: false"
-  device-orientation-permission-ui="enabled: true"
-  mindar-image="
+  <a-scene embedded renderer="alpha: true; antialias: true" vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true" mindar-image="
     imageTargetSrc: assets/target.mind;
     filterMinCF: 0.05;
     filterBeta: 8;
-  "
->
+  ">
 
-  <!-- ASSETS -->
-  <a-assets>
-    <video
-      id="memoryVideo"
-      src="assets/memory.mp4"
-      preload="auto"
-      muted
-      playsinline
-      webkit-playsinline
-      crossorigin="anonymous">
-    </video>
-  </a-assets>
+    <!-- ASSETS -->
+    <a-assets>
+      <video id="memoryVideo" src="assets/memory.mp4" preload="auto" muted playsinline webkit-playsinline
+        crossorigin="anonymous">
+      </video>
+    </a-assets>
 
-  <!-- CAMERA -->
-  <a-entity camera look-controls="enabled: false"></a-entity>
+    <!-- CAMERA -->
+    <a-entity camera look-controls="enabled: false"></a-entity>
 
-  <!-- IMAGE TARGET -->
-  <a-entity id="imageTarget" mindar-image-target="targetIndex: 0">
+    <!-- IMAGE TARGET -->
+    <a-entity id="imageTarget" mindar-image-target="targetIndex: 0">
 
-    <a-video
-      src="#memoryVideo"
-      width="1.6"
-      height="0.9"
-      position="0 0 0.01">
-    </a-video>
+      <a-video src="#memoryVideo" width="1.6" height="0.9" position="0 0 0.01">
+      </a-video>
 
-  </a-entity>
+    </a-entity>
 
-</a-scene>
+  </a-scene>
 
-<div id="hint">Point your camera at the photo</div>
+  <div id="hint">Point your camera at the photo</div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
