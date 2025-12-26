@@ -3,12 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("memoryVideo");
   const hint = document.getElementById("hint");
 
-  scene.addEventListener("loaded", async () => {
-    const system = scene.systems["mindar-image-system"];
-
-    // Explicitly start MindAR AFTER scene is ready
-    await system.start();
-
+  scene.addEventListener("loaded", () => {
     // Listen for global AR errors (e.g. camera permission denied)
     scene.addEventListener("arError", (event) => {
       console.error("MindAR failed to start", event);
@@ -23,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
       video.currentTime = 0;
       video.play().then(() => {
         hint.textContent = "Tap for sound ❤️";
-      }).catch(() => {});
+      }).catch(() => { });
     });
 
     target.addEventListener("targetLost", () => {
