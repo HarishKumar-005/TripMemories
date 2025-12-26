@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+        "label": "Start ngrok tunnel",
+        "type": "shell",
+        "command": "ngrok",
+        "args": [
+            "http",
+            "--domain=big-inherently-cub.ngrok-free.app",
+            "5500"
+        ],
+        "presentation": {
+            "echo": true,
+            "reveal": "always",
+            "panel": "new"
+        },
+        "problemMatcher": []
+    }
+]
+}

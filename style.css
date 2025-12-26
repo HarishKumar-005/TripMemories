@@ -1,0 +1,34 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: black;
+}
+
+/* Force fullscreen AR */
+a-scene {
+  position: fixed;
+  inset: 0;
+}
+
+/* Ensure camera canvas fills screen */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+/* UI hint */
+#hint {
+  position: fixed;
+  bottom: 8%;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
