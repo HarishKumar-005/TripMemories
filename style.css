@@ -23,6 +23,7 @@ canvas {
 /* UI hint */
 #hint {
   position: fixed;
+  z-index: 1000;
   bottom: 8%;
   width: 100%;
   text-align: center;

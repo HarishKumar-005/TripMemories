@@ -9,6 +9,14 @@ window.addEventListener("DOMContentLoaded", () => {
     // Explicitly start MindAR AFTER scene is ready
     await system.start();
 
+    // Listen for global AR errors (e.g. camera permission denied)
+    scene.addEventListener("arError", (event) => {
+      console.error("MindAR failed to start", event);
+      hint.textContent = "Camera failed to start. Please check permissions.";
+      hint.style.color = "red";
+      hint.style.opacity = 1;
+    });
+
     const target = document.getElementById("imageTarget");
 
     target.addEventListener("targetFound", () => {
