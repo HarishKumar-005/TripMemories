@@ -13,16 +13,22 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     const target = document.getElementById("imageTarget");
+    const videoEntity = document.querySelector("a-video");
 
     target.addEventListener("targetFound", () => {
       video.currentTime = 0;
       video.play().then(() => {
         hint.textContent = "Tap for sound ❤️";
+        // Trigger fade-in animation
+        videoEntity.setAttribute("animation", "property: material.opacity; from: 0; to: 1; dur: 1000; easing: easeOutQuad");
       }).catch(() => { });
     });
 
     target.addEventListener("targetLost", () => {
       video.pause();
+      // Reset opacity for next detection
+      videoEntity.setAttribute("material", "opacity", 0);
+      videoEntity.removeAttribute("animation");
     });
   });
 
